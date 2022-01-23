@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <h1>Hello CodeSandbox</h1>
       <h2>{name.value}</h2>
-      <input value={name.value} onChange={name.onChange}></input>
+      <input {...name}></input>
     </div>
   );
 }
