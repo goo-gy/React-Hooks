@@ -1,12 +1,22 @@
 import { useState } from 'react';
 import './App.css';
 
+const useInput = (initialValue) => {
+  const [value, setValue] = useState(initialValue);
+  const onChange = (e) => {
+    setValue(e.target.value);
+  };
+  return { value, onChange };
+};
+
 function App() {
-  const [item, setItem] = useState(1);
+  const name = useInput('Default');
+
   return (
     <div className="App">
       <h1>Hello CodeSandbox</h1>
-      <h2>{item}</h2>
+      <h2>{name.value}</h2>
+      <input value={name.value} onChange={name.onChange}></input>
     </div>
   );
 }
